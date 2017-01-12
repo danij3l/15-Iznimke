@@ -11,10 +11,23 @@ namespace Vsite.CSharp
             if (broj < 0)
                 throw new ArgumentOutOfRangeException(nameof(broj), "----->Argument must be  >=0 ");
 
-            int rezultat = 1;
-            for (int i = 2; i <= broj; ++i)
-                rezultat *= i;
-            return rezultat;
+
+            try
+            {
+                int rezultat = 1;
+                for (int i = 2; i <= broj; ++i)
+                    rezultat *= i;
+                return rezultat;
+            }
+
+            catch (OverflowException e)
+            {
+                Console.WriteLine("Greška {0} {1}", nameof(broj), "20");
+            }
+
+            return 0;
+               
+
         }
 
         public static int Povrh(int n, int k)

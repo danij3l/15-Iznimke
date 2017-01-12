@@ -32,8 +32,14 @@ namespace Vsite.CSharp
             {
                 Console.WriteLine(FormatIspisa, broj, baza, Math.Logaritam(broj, baza));
             }
+            catch (ArgumentOutOfRangeException e) when (e.ParamName == "broj")
+            {
+                // može i -> if (e.ParamName == "broj")
+                Console.WriteLine(NedozvoljeniBroj);
+            }
             catch (ArgumentOutOfRangeException e)
             {
+                Console.WriteLine(NedozvoljenaBaza);
             }
         }
 
